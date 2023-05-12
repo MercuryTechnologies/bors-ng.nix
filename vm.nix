@@ -10,9 +10,7 @@ in
 
     bindMounts."/var/secrets".hostPath = "/var/secrets";
 
-    forwardPorts = [
-      { hostPort = config.services.bors-ng.port; }
-    ];
+    forwardPorts = [ { hostPort = config.services.bors-ng.port; } ];
 
     config = {
       imports = [ ./bors-ng.nix ];
@@ -50,10 +48,17 @@ in
 
           github = {
             clientID = "Iv1.53ee025385b27c1a";
-            clientSecretFile = "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/client-secret.txt)";
+
+            clientSecretFile =
+              "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/client-secret.txt)";
+
             integrationID = 604707;
-            integrationPEMFile = "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/private-key.pem)";
-            webhookSecretFile = "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/webhook-secret.txt)";
+
+            integrationPEMFile =
+              "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/private-key.pem)";
+
+            webhookSecretFile =
+              "<(/run/wrappers/bin/sudo ${pkgs.coreutils}/bin/cat ${secretsDirectory}/webhook-secret.txt)";
           };
         };
 
@@ -119,6 +124,7 @@ in
   virtualisation.sharedDirectories = {
     secrets = {
       source = "$SECRETS";
+
       target = "/var/secrets";
     };
   };
