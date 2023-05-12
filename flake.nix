@@ -27,7 +27,7 @@
 
           modules = [
             base
-            ./module.nix
+            ./vm.nix
           ];
         };
 
