@@ -1,4 +1,10 @@
 { inputs = {
+    flake-compat = {
+      url = "github:edolstra/flake-compat/35bb57c0c8d8b62bbfd284272c928ceb64ddbde9";
+
+      flake = false;
+    };
+
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
 
     nixpkgs.url = "github:NixOS/nixpkgs/22.11";
