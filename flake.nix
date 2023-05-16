@@ -54,15 +54,15 @@
             overlays = [ (import ./overlay.nix) ];
           };
 
-          overlays.default = import ./overlay.nix;
-
-          nixosModules.default = import ./bors-ng.nix;
-
           apps.default = {
             type = "app";
 
             program = "${program}";
           };
         }
-    );
+    ) // {
+      overlays.default = import ./overlay.nix;
+
+      nixosModules.default = import ./bors-ng.nix;
+    };
 }
