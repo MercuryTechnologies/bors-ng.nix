@@ -116,8 +116,6 @@ in
         environment = {
           DATABASE_AUTO_MIGRATE = "true";
 
-          DATABASE_URL = cfg.databaseURL;
-
           DATABASE_USE_SSL = "false";
 
           GITHUB_CLIENT_ID = cfg.github.clientID;
@@ -136,6 +134,7 @@ in
           export GITHUB_CLIENT_SECRET="$(< ${cfg.github.clientSecretFile})"
           export GITHUB_INTEGRATION_PEM="$(base64 -w0 ${cfg.github.integrationPEMFile})"
           export GITHUB_WEBHOOK_SECRET="$(< ${cfg.github.webhookSecretFile})"
+          export DATABASE_URL="${cfg.databaseURL}";
 
           bors eval 'BorsNG.Database.Migrate.run_standalone()'
           bors start
