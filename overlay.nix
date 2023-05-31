@@ -43,6 +43,8 @@ self: super: {
 
     npmInstallFlags = "--prefix=assets --legacy-peer-deps";
 
+    patches = [ ./user-agent.patch ];
+
     preInstall =
       let
         phoenix = self.fetchFromGitHub {
