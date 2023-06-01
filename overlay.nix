@@ -43,6 +43,7 @@ self: super: {
 
     npmInstallFlags = "--prefix=assets --legacy-peer-deps";
 
+    # https://github.com/bors-ng/bors-ng/issues/1668
     patches = [ ./user-agent.patch ];
 
     preInstall =
