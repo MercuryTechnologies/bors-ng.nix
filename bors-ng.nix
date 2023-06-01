@@ -114,6 +114,8 @@ in
         wantedBy = [ "multi-user.target" ];
 
         environment = {
+          ALLOW_PRIVATE_REPOS = "true";
+
           DATABASE_AUTO_MIGRATE = "true";
 
           DATABASE_USE_SSL = "false";
