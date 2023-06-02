@@ -46,13 +46,18 @@
         '';
 
       in
-        { packages.default = import nixpkgs {
-            inherit system;
+        { packages.default =
+            let
+              pkgs = import nixpkgs {
+                inherit system;
 
-            config = { };
+                config = { };
 
-            overlays = [ (import ./overlay.nix) ];
-          };
+                overlays = [ (import ./overlay.nix) ];
+              };
+
+            in
+              pkgs.bors-ng;
 
           apps.default = {
             type = "app";
