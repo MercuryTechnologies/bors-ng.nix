@@ -7,9 +7,9 @@ self: super: {
 
       repo = "bors-ng";
 
-      rev = "2d5e98c76f43825ec8040fa862bb75d896dca482";
+      rev = "cd746f86d39d85a0125614396563f6c218a52fb8";
 
-      hash = "sha256-AYb/XvKaLyvUHiGJv/5Bo/EDNjdnypsas1iOouNIf80=";
+      hash = "sha256-YxYooQrLRvi8vNUFkVIe3fGEfO6bFCvB/oOroxeLxYc=";
 
       # This is the real `package-lock.json`.  The one at the top-level of the
       # project is fairly useless.  We have to copy it to the top level for
@@ -32,7 +32,7 @@ self: super: {
     npmDeps = (self.fetchNpmDeps {
       inherit src;
 
-      hash = "sha256-h1Mb3wb++WseCJdLqmMxlwzz83CW0yBHny6knccrIwk=";
+      hash = "sha256-bc49aouKCBtwmxFVEEGtihfdmmsyWZ2qmOqNbmLLP4E=";
     }).overrideAttrs (old: {
       # TODO: Upstream this fix into Nixpkgs
       preBuild = (old.preBuild or "") +
@@ -42,9 +42,6 @@ self: super: {
     });
 
     npmInstallFlags = "--prefix=assets --legacy-peer-deps";
-
-    # https://github.com/bors-ng/bors-ng/issues/1668
-    patches = [ ./user-agent.patch ];
 
     preInstall =
       let
