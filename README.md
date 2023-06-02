@@ -9,3 +9,16 @@ You can see an example for how to use the NixOS module by studying
 the pieces fit together.  Specifically, that shows how to run `bors-ng` and the
 matching `postgresql` backend inside of a NixOS container so that they're
 isolated from any other databases running on the same machine.
+
+You can run that VM using:
+
+```ShellSession
+$ SECRETS=/path/to/secrets/directory nix run
+```
+
+… where that `${SECRETS}`directory contains:
+
+- `secret-key-base.txt`
+- `client-secret.txt`
+- `private-key.pem`
+- `webhook-secret.txt`
