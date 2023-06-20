@@ -7,9 +7,9 @@ self: super: {
 
       repo = "bors-ng";
 
-      rev = "cd746f86d39d85a0125614396563f6c218a52fb8";
+      rev = "7a65984d0f8ee47d741b27397ae976a6b94faac2";
 
-      hash = "sha256-YxYooQrLRvi8vNUFkVIe3fGEfO6bFCvB/oOroxeLxYc=";
+      hash = "sha256-5bAlC2qfpZ28D2XwASKFYNL2Wgwj2baUYY/dTkfsyjY=";
 
       # This is the real `package-lock.json`.  The one at the top-level of the
       # project is fairly useless.  We have to copy it to the top level for
@@ -32,7 +32,7 @@ self: super: {
     npmDeps = (self.fetchNpmDeps {
       inherit src;
 
-      hash = "sha256-bc49aouKCBtwmxFVEEGtihfdmmsyWZ2qmOqNbmLLP4E=";
+      hash = "sha256-xbJzUUKARtXm3enGumNSNGhK3ol0bbdUYChs1vW52YI=";
     }).overrideAttrs (old: {
       # TODO: Upstream this fix into Nixpkgs
       preBuild = (old.preBuild or "") +
