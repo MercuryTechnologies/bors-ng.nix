@@ -7,9 +7,9 @@ self: super: {
 
       repo = "bors-ng";
 
-      rev = "7a65984d0f8ee47d741b27397ae976a6b94faac2";
+      rev = "390d99890d16a9fa34691728812d0052e99131f4";
 
-      hash = "sha256-5bAlC2qfpZ28D2XwASKFYNL2Wgwj2baUYY/dTkfsyjY=";
+      hash = "sha256-jSzZcaRh2i+/OVZBQ+JWlHK3p/M4jjOEME8+ModmIqY=";
 
       # This is the real `package-lock.json`.  The one at the top-level of the
       # project is fairly useless.  We have to copy it to the top level for
